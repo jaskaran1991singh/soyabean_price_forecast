@@ -64,13 +64,6 @@
     <text x="0" y="330" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="11" font-style="italic" fill="#f3e6c6">→ training_weekly.*</text>
   </g>
 
-  <!-- a little granary/silo at the end of the road -->
-  <g transform="translate(1120 206)">
-    <rect x="0" y="0" width="30" height="46" rx="4" fill="#d6dde0" stroke="#8a97a0" stroke-width="2"/>
-    <ellipse cx="15" cy="0" rx="15" ry="6" fill="#b9c3c8"/>
-    <path d="M0 0 A15 14 0 0 1 30 0" fill="#9aa5ab"/>
-  </g>
-
   <!-- the tractor, driving the road (front = right, big drive wheel at the rear = left) -->
   <g>
     <animateMotion dur="10s" repeatCount="indefinite" rotate="0" path="M60 234 L1080 234"/>
