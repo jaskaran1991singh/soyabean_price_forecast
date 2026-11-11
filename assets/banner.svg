@@ -81,7 +81,7 @@
   <rect x="6" y="6" width="1188" height="348" rx="20" fill="url(#sky)" stroke="#6f9c33" stroke-width="3"/>
 
   <!-- sun -->
-  <g transform="translate(1060 96)">
+  <g transform="translate(1108 80) scale(0.78)">
     <circle r="46" fill="url(#sun)">
       <animate attributeName="r" values="46;49;46" dur="5s" repeatCount="indefinite"/>
     </circle>
@@ -140,7 +140,7 @@
 
   <!-- title -->
   <g text-anchor="middle" font-family="'Georgia','Trebuchet MS',serif">
-    <text x="600" y="118" font-size="62" font-weight="900" fill="url(#title)" stroke="#f3f7df" stroke-width="0.5" letter-spacing="1">SOYABEAN PRICE FORECAST</text>
-    <text x="600" y="150" font-size="20" fill="#3f6b22" font-style="italic" font-family="'Trebuchet MS',sans-serif">from field to forecast · point-in-time weekly training data</text>
+    <text x="585" y="116" font-size="52" font-weight="900" fill="url(#title)" stroke="#f3f7df" stroke-width="0.5" letter-spacing="0.5">SOYABEAN PRICE FORECAST</text>
+    <text x="585" y="146" font-size="20" fill="#3f6b22" font-style="italic" font-family="'Trebuchet MS',sans-serif">from field to forecast · point-in-time weekly training data</text>
   </g>
 </svg>

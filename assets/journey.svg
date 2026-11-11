@@ -71,28 +71,35 @@
     <path d="M0 0 A15 14 0 0 1 30 0" fill="#9aa5ab"/>
   </g>
 
-  <!-- the tractor, driving the road -->
+  <!-- the tractor, driving the road (front = right, big drive wheel at the rear = left) -->
   <g>
-    <animateMotion dur="10s" repeatCount="indefinite" rotate="0" path="M40 258 L1090 258"/>
-    <g transform="translate(-10 -40)">
+    <animateMotion dur="10s" repeatCount="indefinite" rotate="0" path="M60 234 L1080 234"/>
+    <!-- grain trailer towed behind (left) -->
+    <rect x="-72" y="6" width="30" height="15" rx="2" fill="#8a5a2b" stroke="#5c3a18" stroke-width="1.5"/>
+    <path d="M-70 6 q15 -9 26 0 q-13 3 -26 0Z" fill="#E3B23C"/>
+    <circle cx="-64" cy="22" r="6" fill="#2b2b2b" stroke="#f2c94c" stroke-width="1.5"/>
+    <circle cx="-48" cy="22" r="6" fill="#2b2b2b" stroke="#f2c94c" stroke-width="1.5"/>
+    <line x1="-42" y1="17" x2="-30" y2="15" stroke="#5c3a18" stroke-width="2"/>
+    <!-- exhaust smoke -->
+    <g transform="translate(8 -22)">
       <use href="#jsmoke"><animate attributeName="opacity" values="0;0.9;0" dur="1.3s" repeatCount="indefinite"/>
         <animateTransform attributeName="transform" type="translate" values="0 0;-8 -22;-16 -40" dur="1.3s" repeatCount="indefinite"/></use>
     </g>
-    <!-- rear big wheel -->
-    <circle cx="20" cy="18" r="17" fill="#2b2b2b" stroke="#f2c94c" stroke-width="3"/>
-    <circle cx="20" cy="18" r="6" fill="#6b6b6b"/>
-    <!-- front small wheel -->
-    <circle cx="-22" cy="24" r="10" fill="#2b2b2b" stroke="#f2c94c" stroke-width="2.5"/>
-    <circle cx="-22" cy="24" r="3.5" fill="#6b6b6b"/>
-    <!-- body -->
-    <rect x="-30" y="2" width="56" height="18" rx="4" fill="url(#tractor)" stroke="#214d12" stroke-width="2"/>
-    <rect x="-8" y="-16" width="26" height="20" rx="4" fill="url(#tractor)" stroke="#214d12" stroke-width="2"/>
-    <rect x="-3" y="-12" width="16" height="13" rx="2" fill="#cfeacd" stroke="#214d12" stroke-width="1.2"/>
-    <!-- exhaust -->
-    <rect x="-20" y="-14" width="5" height="16" rx="2" fill="#2b2b2b"/>
-    <!-- grain in a little trailer -->
-    <circle cx="-40" cy="14" r="6" fill="#2b2b2b" stroke="#f2c94c" stroke-width="1.5"/>
-    <path d="M-62 20 L-62 8 L-34 8 L-34 20 Z" fill="#8a5a2b" stroke="#5c3a18" stroke-width="1.5"/>
-    <path d="M-60 8 q13 -8 24 0 q-12 3 -24 0Z" fill="#E3B23C"/>
+    <!-- chassis -->
+    <rect x="-24" y="6" width="56" height="13" rx="3" fill="url(#tractor)" stroke="#214d12" stroke-width="2"/>
+    <!-- hood / engine toward the front (right) -->
+    <rect x="14" y="-4" width="22" height="15" rx="3" fill="url(#tractor)" stroke="#214d12" stroke-width="2"/>
+    <circle cx="35" cy="3" r="2.6" fill="#fff3b0" stroke="#214d12" stroke-width="0.8"/>
+    <!-- cab over the rear wheel (left) -->
+    <rect x="-26" y="-18" width="28" height="24" rx="4" fill="url(#tractor)" stroke="#214d12" stroke-width="2"/>
+    <rect x="-21" y="-13" width="17" height="15" rx="2" fill="#cfeacd" stroke="#214d12" stroke-width="1.2"/>
+    <!-- exhaust stack at front of cab -->
+    <rect x="7" y="-18" width="5" height="18" rx="2" fill="#2b2b2b"/>
+    <!-- rear big drive wheel (left) -->
+    <circle cx="-13" cy="18" r="17" fill="#2b2b2b" stroke="#f2c94c" stroke-width="3"/>
+    <circle cx="-13" cy="18" r="6" fill="#6b6b6b"/>
+    <!-- front small steering wheel (right) -->
+    <circle cx="26" cy="24" r="10" fill="#2b2b2b" stroke="#f2c94c" stroke-width="2.5"/>
+    <circle cx="26" cy="24" r="3.5" fill="#6b6b6b"/>
   </g>
 </svg>

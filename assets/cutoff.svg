@@ -36,8 +36,8 @@
   <rect x="640" y="150" width="460" height="150" rx="6" fill="url(#fallow)"/>
   <rect x="640" y="150" width="460" height="150" rx="6" fill="url(#furrow)"/>
 
-  <text x="330" y="96" text-anchor="middle" font-family="'Georgia',serif" font-size="16" font-weight="800" fill="#2f5d1a">🌾 GROWN — available_at ≤ cutoff (usable)</text>
-  <text x="875" y="96" text-anchor="middle" font-family="'Georgia',serif" font-size="16" font-weight="800" fill="#8a4a1e">🌱 NOT YET GROWN — the future (off-limits to features)</text>
+  <text x="300" y="96" text-anchor="middle" font-family="'Georgia',serif" font-size="16" font-weight="800" fill="#2f5d1a">🌾 GROWN (available_at ≤ cutoff)</text>
+  <text x="890" y="96" text-anchor="middle" font-family="'Georgia',serif" font-size="16" font-weight="800" fill="#8a4a1e">🌱 NOT YET GROWN (the future)</text>
 
   <!-- ground line with weekday furrow ticks -->
   <line x1="40" y1="300" x2="1080" y2="300" stroke="#6e4620" stroke-width="3"/>
@@ -70,9 +70,9 @@
     <path d="M596 118 l6 -10 l6 10Z" fill="#6e4620"/>
     <path d="M672 118 l6 -10 l6 10Z" fill="#6e4620"/>
   </g>
-  <rect x="604" y="126" width="72" height="24" rx="4" fill="#efe3c6" stroke="#6e4620" stroke-width="2"/>
-  <text x="640" y="143" text-anchor="middle" font-family="'Georgia',serif" font-size="13" font-weight="900" fill="#8a4a1e">CUTOFF</text>
-  <text x="640" y="70" text-anchor="middle" font-family="'Georgia',serif" font-size="14" font-weight="800" fill="#6e4620">THE HARVEST LINE</text>
+  <rect x="604" y="150" width="72" height="24" rx="4" fill="#efe3c6" stroke="#6e4620" stroke-width="2"/>
+  <text x="640" y="167" text-anchor="middle" font-family="'Georgia',serif" font-size="13" font-weight="900" fill="#8a4a1e">CUTOFF</text>
+  <text x="640" y="46" text-anchor="middle" font-family="'Georgia',serif" font-size="14" font-weight="800" fill="#6e4620">THE HARVEST LINE</text>
   <text x="640" y="344" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="12" fill="#4a2f16">Saturday = week_end + forecast_lag_days · the day the forecast is made</text>
 
   <!-- future seedlings -->
@@ -82,9 +82,9 @@
   </g>
 
   <!-- the label we predict, growing in the future -->
-  <path d="M560 168 C 620 126, 760 126, 820 174" fill="none" stroke="#2f6d1a" stroke-width="2.5" stroke-dasharray="6 5"/>
-  <polygon points="820,174 811,165 826,162" fill="#2f6d1a"/>
-  <circle cx="560" cy="168" r="6" fill="#7aa83c" stroke="#2f5d1a" stroke-width="1.5"/>
-  <use href="#w2" x="812" y="160" width="18" height="34"/>
-  <text x="690" y="116" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="11" font-style="italic" fill="#2f6d1a">target_y_fwd : a LABEL (we predict it) — never a feature</text>
+  <text x="640" y="70" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="11" font-style="italic" fill="#2f6d1a">target_y_fwd : a LABEL (we predict it) — never a feature</text>
+  <path d="M560 164 C 606 112, 676 112, 820 150" fill="none" stroke="#2f6d1a" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <polygon points="820,150 810,142 825,139" fill="#2f6d1a"/>
+  <circle cx="560" cy="164" r="6" fill="#7aa83c" stroke="#2f5d1a" stroke-width="1.5"/>
+  <use href="#w2" x="812" y="136" width="18" height="34"/>
 </svg>
