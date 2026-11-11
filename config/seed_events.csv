@@ -1,0 +1,16 @@
+event_type,announced_at,effective_from,effective_to,value,unit,description,source_url,verified
+msp,7/1/2015,10/1/2015,9/30/2016,2600,rs_qtl,Soybean (yellow) MSP KMS 2015-16,https://cacp.da.gov.in,FALSE
+msp,6/1/2016,10/1/2016,9/30/2017,2775,rs_qtl,Soybean (yellow) MSP KMS 2016-17,https://cacp.da.gov.in,FALSE
+msp,6/7/2017,10/1/2017,9/30/2018,3050,rs_qtl,Soybean (yellow) MSP KMS 2017-18,https://cacp.da.gov.in,FALSE
+msp,7/4/2018,10/1/2018,9/30/2019,3399,rs_qtl,Soybean (yellow) MSP KMS 2018-19,https://cacp.da.gov.in,FALSE
+msp,7/3/2019,10/1/2019,9/30/2020,3710,rs_qtl,Soybean (yellow) MSP KMS 2019-20,https://cacp.da.gov.in,FALSE
+msp,6/1/2020,10/1/2020,9/30/2021,3880,rs_qtl,Soybean (yellow) MSP KMS 2020-21,https://cacp.da.gov.in,FALSE
+msp,6/9/2021,10/1/2021,9/30/2022,3950,rs_qtl,Soybean (yellow) MSP KMS 2021-22,https://cacp.da.gov.in,FALSE
+msp,6/8/2022,10/1/2022,9/30/2023,4300,rs_qtl,Soybean (yellow) MSP KMS 2022-23,https://cacp.da.gov.in,FALSE
+msp,6/7/2023,10/1/2023,9/30/2024,4600,rs_qtl,Soybean (yellow) MSP KMS 2023-24,https://cacp.da.gov.in,FALSE
+msp,6/19/2024,10/1/2024,9/30/2025,4892,rs_qtl,Soybean (yellow) MSP KMS 2024-25,https://cacp.da.gov.in,FALSE
+msp,5/28/2025,10/1/2025,9/30/2026,5328,rs_qtl,Soybean (yellow) MSP KMS 2025-26,https://cacp.da.gov.in,FALSE
+msp,5/13/2026,10/1/2026,9/30/2027,5708,rs_qtl,Soybean (yellow) MSP KMS 2026-27 (+380),https://www.devdiscourse.com/article/law-order/3907019-cabinet-approves-higher-msps-for-14-kharif-crops-boosting-farmer-incomes-and-strengthening-food-security,TRUE
+futures_suspension,12/20/2021,12/20/2021,3/31/2027,1,flag,SEBI suspends soybean & derivatives futures (extended to 2027-03-31),https://rhnvrm.github.io/stock-market-circulars/circulars/nse/2026/nse-2026-04-01-ddc2dc8e06866835-trading-suspension-on-crude-degummed-soybean-oil-futures-degumsyoil,TRUE
+import_duty_crude_soyoil,5/30/2025,5/31/2025,9/23/2026,16.5,pct_effective,Crude soy oil BCD cut 20%->10% (effective 16.5%),https://www.fas.usda.gov/data/india-india-cuts-import-tax-crude-edible-oils-opportunities-us-soybean-oil,TRUE
+import_duty_crude_soyoil,9/23/2026,9/24/2026,,11,pct_effective,Crude soy oil BCD cut 10%->5% (effective 11%),https://www.angelone.in/news/market-updates/government-reduces-edible-oil-import-duty-crude-palm-and-soybean-oil-rate-cut-to-5,TRUE

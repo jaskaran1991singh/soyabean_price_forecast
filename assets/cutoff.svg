@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 360" width="1120" height="360" role="img" aria-label="The point-in-time cutoff as a Lakshman Rekha: features use only the past, labels look to the future">
+  <defs>
+    <linearGradient id="past" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8f7ea"/><stop offset="1" stop-color="#cdeccf"/>
+    </linearGradient>
+    <linearGradient id="future" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde6e0"/><stop offset="1" stop-color="#f7cfc4"/>
+    </linearGradient>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#e07a5f" stroke-width="2.5" opacity="0.5"/>
+    </pattern>
+    <linearGradient id="rekha" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3b0"/><stop offset="0.5" stop-color="#ff7a00"/><stop offset="1" stop-color="#c0392b"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect x="4" y="4" width="1112" height="352" rx="16" fill="#fffdf6" stroke="#c0392b" stroke-width="3"/>
+
+  <!-- past / future panels -->
+  <rect x="20" y="70" width="620" height="210" rx="8" fill="url(#past)"/>
+  <rect x="640" y="70" width="460" height="210" rx="8" fill="url(#future)"/>
+  <rect x="640" y="70" width="460" height="210" rx="8" fill="url(#hatch)"/>
+
+  <text x="330" y="96" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="15" font-weight="800" fill="#1f7a3d">✅ KNOWABLE — available_at ≤ cutoff</text>
+  <text x="870" y="96" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="15" font-weight="800" fill="#c0392b">⛔ THE FUTURE — forbidden to features</text>
+
+  <!-- timeline axis -->
+  <line x1="40" y1="230" x2="1080" y2="230" stroke="#5b3a1a" stroke-width="3"/>
+  <g stroke="#5b3a1a" stroke-width="2" font-family="'Trebuchet MS',sans-serif" font-size="11" fill="#5b3a1a" text-anchor="middle">
+    <line x1="120" y1="224" x2="120" y2="236"/><text x="120" y="252">Mon</text>
+    <line x1="230" y1="224" x2="230" y2="236"/><text x="230" y="252">Tue</text>
+    <line x1="340" y1="224" x2="340" y2="236"/><text x="340" y="252">Wed</text>
+    <line x1="450" y1="224" x2="450" y2="236"/><text x="450" y="252">Thu</text>
+    <line x1="560" y1="224" x2="560" y2="236"/><text x="560" y="258" font-weight="800">Fri = week_end</text>
+    <line x1="640" y1="224" x2="640" y2="236"/>
+    <line x1="760" y1="224" x2="760" y2="236"/><text x="760" y="252">Sun</text>
+    <line x1="880" y1="224" x2="880" y2="236"/><text x="880" y="252">next week…</text>
+  </g>
+
+  <!-- data points that ARE knowable (past) -->
+  <g font-family="'Trebuchet MS',sans-serif" font-size="11" text-anchor="middle">
+    <circle cx="180" cy="165" r="9" fill="#FF8C00" stroke="#7a1f12" stroke-width="1.5"/><text x="180" y="146" fill="#5b3a1a">mandi price</text>
+    <circle cx="300" cy="190" r="9" fill="#2A9D8F" stroke="#7a1f12" stroke-width="1.5"/><text x="300" y="171" fill="#5b3a1a">weather</text>
+    <circle cx="430" cy="160" r="9" fill="#6C5CE7" stroke="#7a1f12" stroke-width="1.5"/><text x="430" y="141" fill="#5b3a1a">news (publish date)</text>
+    <circle cx="540" cy="192" r="9" fill="#0E7C7B" stroke="#7a1f12" stroke-width="1.5"/><text x="540" y="210" fill="#5b3a1a">CBOT close</text>
+  </g>
+
+  <!-- the Lakshman Rekha (cutoff = Saturday) -->
+  <g filter="url(#glow)">
+    <rect x="636" y="56" width="8" height="238" rx="4" fill="url(#rekha)">
+      <animate attributeName="opacity" values="1;0.65;1" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="640" y="44" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="15" font-weight="900" fill="#c0392b">लक्ष्मण रेखा · CUTOFF</text>
+  <text x="640" y="312" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="12" fill="#7a1f12">Saturday = week_end + forecast_lag_days · the moment the forecast is issued</text>
+
+  <!-- label jumps across the rekha: we predict the future, never feed it back -->
+  <path d="M560 150 C 620 70, 760 70, 820 150" fill="none" stroke="#8E44AD" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <polygon points="820,150 812,140 826,138" fill="#8E44AD"/>
+  <circle cx="560" cy="150" r="7" fill="#7B1E3A" stroke="#FFC700" stroke-width="1.5"/>
+  <circle cx="820" cy="150" r="9" fill="#8E44AD" stroke="#fff" stroke-width="1.5"/>
+  <text x="690" y="70" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="11" font-style="italic" fill="#8E44AD">target_y_fwd : a LABEL (we predict it) — never a feature</text>
+
+  <!-- footer tricolour -->
+  <rect x="4" y="340" width="1112" height="5" fill="#FF9933"/>
+  <rect x="4" y="345" width="1112" height="5" fill="#ffffff"/>
+  <rect x="4" y="350" width="1112" height="6" fill="#138808"/>
+</svg>

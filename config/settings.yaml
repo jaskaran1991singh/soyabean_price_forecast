@@ -1,0 +1,119 @@
+# ---------------------------------------------------------------
+# Soybean weekly price forecasting — pipeline settings
+# ---------------------------------------------------------------
+project:
+  start_date: "2015-01-01"
+  end_date: null            # null = today
+  week_ending: "W-FRI"      # weekly bucket; set to the day the target mandi's trading week closes
+  forecast_lag_days: 1      # forecast is issued on Saturday: features may use data available <= week_end + 1d
+  data_dir: "data"
+
+target:
+  state: "Madhya Pradesh"
+  district: "Indore"
+  market: "Indore"          # APMC name as it appears in Agmarknet
+  # Optional Hindi aliases: used only to build Hindi search hints for the research agent.
+  # Leave unset for a new market and the English names are used instead.
+  market_hi: "इंदौर"
+  state_hi: "मध्य प्रदेश"
+  commodity: "Soyabean"
+  varieties: []             # [] = all varieties; e.g. ["Yellow", "Soyabean"]
+  horizons_weeks: [1, 2, 4, 8]
+  price_floor: 1500         # Rs/qtl sanity bounds for cleaning
+  price_ceiling: 15000
+
+# Neighbouring / benchmark mandis used for spread & lead features.
+# This list is the Indore (MP) set — replace it with mandis near your target when you move markets.
+peer_markets:
+  - {state: "Madhya Pradesh", district: "Ujjain",   market: "Ujjain"}
+  - {state: "Madhya Pradesh", district: "Dewas",    market: "Dewas"}
+  - {state: "Madhya Pradesh", district: "Dhar",     market: "Dhar"}
+  - {state: "Madhya Pradesh", district: "Mandsaur", market: "Mandsaur"}
+  - {state: "Madhya Pradesh", district: "Shajapur", market: "Shajapur"}
+  - {state: "Madhya Pradesh", district: "Sehore",   market: "Sehore"}
+  - {state: "Maharashtra",    district: "Latur",    market: "Latur"}
+
+# Mandi price sources, tried in order. Keys go in .env
+mandi_sources:
+  order: ["mandi_api", "datagov", "csv"]
+  mandi_api:
+    # Free keyless wrapper over data.gov.in mandi prices (docs: https://mandi-api.vercel.app/docs).
+    # Verify state/market names and the response format with: python -m soyfc probe-mandi-api
+    base_url: "https://mandi-api.onrender.com/v1"
+    min_seconds_between_calls: 9.5   # API limit is 100 requests / 15 min per IP
+    timeout_seconds: 90              # free hosting "sleeps"; the first call can take ~1 min to wake it
+  datagov:
+    # Variety-wise daily market prices (historical). Verify with: python -m soyfc probe-datagov
+    historical_resource_id: "35985678-0d79-46b4-9ed6-6f13308a1d24"
+    current_resource_id: "9ef84268-d588-465a-a308-a864a43d0070"
+    page_size: 1000
+  csv:
+    # Drop Agmarknet "Price & Arrival" report exports here (any number of CSV/XLS files)
+    import_dir: "data/manual/agmarknet"
+
+# Target-market soybean catchment — weather is averaged over these points.
+# These points + the season windows below are the Indore (MP) catchment; change both to the
+# growing area and crop calendar around your target mandi when you move markets.
+weather:
+  provider: "open-meteo"
+  climatology_start: "2005-01-01"   # extra history so season departures exist from 2015
+  points:
+    - {name: "Indore",   lat: 22.72, lon: 75.86}
+    - {name: "Dewas",    lat: 22.97, lon: 76.05}
+    - {name: "Ujjain",   lat: 23.18, lon: 75.78}
+    - {name: "Dhar",     lat: 22.60, lon: 75.30}
+    - {name: "Shajapur", lat: 23.43, lon: 76.27}
+    - {name: "Sehore",   lat: 23.20, lon: 77.08}
+    - {name: "Ratlam",   lat: 23.33, lon: 75.04}
+  season:
+    sowing_start: "06-15"
+    flowering: ["07-25", "08-31"]
+    harvest_window: ["09-15", "10-31"]
+    heat_threshold_c: 35
+    dry_day_mm: 2.5
+
+# Global markets (daily). yfinance tickers + FRED series (no key needed for FRED CSV)
+markets:
+  yfinance:
+    cbot_soybean: "ZS=F"        # US cents / bushel
+    cbot_soymeal: "ZM=F"        # USD / short ton
+    cbot_soyoil:  "ZL=F"        # US cents / lb
+    brent:        "BZ=F"
+    usdinr:       "INR=X"
+    usdbrl:       "BRL=X"
+    dxy:          "DX-Y.NYB"
+  fred_monthly:                 # IMF primary commodity prices, published ~1 month after
+    palm_oil_usd_t:   "PPOILUSDM"
+    soyoil_usd_t:     "PSOILUSDM"
+    soybeans_usd_t:   "PSOYBUSDM"
+    soymeal_usd_t:    "PSMEAUSDM"
+    sunflower_usd_t:  "PSUNOUSDM"
+  fred_publication_lag_days: 35
+
+usda_psd:
+  url: "https://apps.fas.usda.gov/psdonline/downloads/psd_oilseeds_csv.zip"
+  commodities: {soybean: "2222000", soymeal: "0813100", soyoil: "4232000"}
+  countries: ["World", "United States", "Brazil", "Argentina", "India", "China"]
+  attributes: ["Production", "Ending Stocks", "Exports", "Imports", "Domestic Consumption"]
+  # PSD only holds the latest revision, so lag each marketing year's value until it is
+  # reasonably final, to avoid look-ahead. Value for MY y is used from (MY start + lag).
+  availability_lag_months: 15
+
+economics:
+  meal_yield: 0.80              # share of seed weight
+  oil_yield: 0.18
+  processing_cost_rs_qtl: 350   # crush cost assumption, tune with SOPA data
+
+# Research agent (Tavily + LLM). One LangChain tool-calling agent per research area, per window.
+agent:
+  # Any langchain init_chat_model id; check model IDs in Google AI Studio. GOOGLE_API_KEY from .env.
+  model: "google_genai:gemini-3-flash-preview"
+  tavily_search_depth: "advanced"
+  max_results_per_search: 6      # Tavily results per search call
+  max_searches_per_task: 6       # hard budget per research area per window (enforced by the search tool)
+  snippet_chars: 400             # text shown per result in search listings
+  raw_content_chars: 6000        # text returned by read_doc
+  min_confidence: 0.5            # records below this are rejected by the save tools
+  recursion_limit: 50            # max agent steps per window (safety stop)
+  backfill_window: "MS"          # monthly windows for backfill
+  update_window_days: 7          # weekly incremental runs

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560" role="img" aria-label="Feature groups served as a thali: each katori is a feature family around the target price">
+  <defs>
+    <radialGradient id="steel" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#fbfdff"/>
+      <stop offset="0.5" stop-color="#d9e2ec"/>
+      <stop offset="0.85" stop-color="#aab7c4"/>
+      <stop offset="1" stop-color="#7c8a99"/>
+    </radialGradient>
+    <radialGradient id="plate" cx="0.42" cy="0.38" r="0.75">
+      <stop offset="0" stop-color="#eef3f8"/>
+      <stop offset="1" stop-color="#c3cfdb"/>
+    </radialGradient>
+    <radialGradient id="centre" cx="0.42" cy="0.38" r="0.8">
+      <stop offset="0" stop-color="#9b2d4f"/>
+      <stop offset="1" stop-color="#5a132c"/>
+    </radialGradient>
+    <style>
+      .k { stroke:#6b7682; stroke-width:2.5; }
+      .hl{ fill:#ffffff; opacity:0.22; }
+      .lbl{ font-family:'Trebuchet MS','Segoe UI',sans-serif; font-weight:800; font-size:12px;
+            text-anchor:middle; fill:#2a1c04; paint-order:stroke; stroke:#fff8e7; stroke-width:2.6px; }
+    </style>
+  </defs>
+
+  <!-- thali -->
+  <circle cx="280" cy="280" r="252" fill="url(#steel)" stroke="#5b6670" stroke-width="3"/>
+  <circle cx="280" cy="280" r="236" fill="url(#plate)" stroke="#8a97a4" stroke-width="2"/>
+  <circle cx="280" cy="280" r="224" fill="none" stroke="#9fb0bf" stroke-width="1" stroke-dasharray="1 6"/>
+
+  <!-- 11 katoris (feature groups) -->
+  <!-- i0 target -->
+  <g><circle class="k" cx="280" cy="95" r="42" fill="#FF8C00"/><circle class="hl" cx="268" cy="83" r="16"/><text class="lbl" x="280" y="99">TARGET</text></g>
+  <!-- i1 peers -->
+  <g><circle class="k" cx="380" cy="125" r="42" fill="#E1A500"/><circle class="hl" cx="368" cy="113" r="16"/><text class="lbl" x="380" y="129">PEERS</text></g>
+  <!-- i2 markets -->
+  <g><circle class="k" cx="448" cy="203" r="42" fill="#0E7C7B"/><circle class="hl" cx="436" cy="191" r="16"/><text class="lbl" x="448" y="207">MARKETS</text></g>
+  <!-- i3 weather -->
+  <g><circle class="k" cx="463" cy="306" r="42" fill="#2A9D8F"/><circle class="hl" cx="451" cy="294" r="16"/><text class="lbl" x="463" y="310">WEATHER</text></g>
+  <!-- i4 psd -->
+  <g><circle class="k" cx="420" cy="401" r="42" fill="#3F6DB5"/><circle class="hl" cx="408" cy="389" r="16"/><text class="lbl" x="420" y="405">PSD</text></g>
+  <!-- i5 policy -->
+  <g><circle class="k" cx="332" cy="458" r="42" fill="#8E44AD"/><circle class="hl" cx="320" cy="446" r="16"/><text class="lbl" x="332" y="462">POLICY</text></g>
+  <!-- i6 industry -->
+  <g><circle class="k" cx="228" cy="458" r="42" fill="#C0392B"/><circle class="hl" cx="216" cy="446" r="16"/><text class="lbl" x="228" y="462">INDUSTRY</text></g>
+  <!-- i7 products -->
+  <g><circle class="k" cx="140" cy="401" r="42" fill="#D35400"/><circle class="hl" cx="128" cy="389" r="16"/><text class="lbl" x="140" y="405">PRODUCTS</text></g>
+  <!-- i8 sentiment -->
+  <g><circle class="k" cx="97" cy="306" r="42" fill="#16A085"/><circle class="hl" cx="85" cy="294" r="16"/><text class="lbl" x="97" y="310">SENTIMENT</text></g>
+  <!-- i9 forecasts -->
+  <g><circle class="k" cx="112" cy="203" r="42" fill="#6C5CE7"/><circle class="hl" cx="100" cy="191" r="16"/><text class="lbl" x="112" y="207">FORECASTS</text></g>
+  <!-- i10 calendar -->
+  <g><circle class="k" cx="180" cy="125" r="42" fill="#B8860B"/><circle class="hl" cx="168" cy="113" r="16"/><text class="lbl" x="180" y="129">CALENDAR</text></g>
+
+  <!-- centre: the target price (main dish) -->
+  <circle cx="280" cy="280" r="60" fill="url(#centre)" stroke="#FFC700" stroke-width="3"/>
+  <circle cx="280" cy="280" r="60" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="2 5" opacity="0.5"/>
+  <text x="280" y="272" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-weight="900" font-size="30" fill="#ffe08a">y</text>
+  <text x="280" y="296" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="12" fill="#ffd9b0">BHAV ₹/qtl</text>
+  <text x="280" y="312" text-anchor="middle" font-family="'Nirmala UI','Noto Sans Devanagari',sans-serif" font-size="11" fill="#ffcf9f">मुख्य व्यंजन</text>
+</svg>

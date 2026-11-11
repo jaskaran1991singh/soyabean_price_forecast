@@ -1,0 +1,16 @@
+.env
+# Generated data is partitioned per target market: data/<market>_<commodity>/...
+data/*/raw/
+data/*/staged/
+data/*/features/
+data/*/agent_progress.parquet
+# Virtual environments / editor / caches
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
