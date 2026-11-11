@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560" role="img" aria-label="Feature groups as a center-pivot crop field: each wedge a grain around the crop we grow">
+  <defs>
+    <radialGradient id="soilbg" cx="0.5" cy="0.5" r="0.75">
+      <stop offset="0" stop-color="#b98a52"/><stop offset="1" stop-color="#8a5a2b"/>
+    </radialGradient>
+    <radialGradient id="hub" cx="0.42" cy="0.38" r="0.8">
+      <stop offset="0" stop-color="#a9743f"/><stop offset="1" stop-color="#6e4620"/>
+    </radialGradient>
+    <style>
+      .seg { stroke:#5c3a18; stroke-width:1.5; }
+      .lbl { font-family:'Georgia','Trebuchet MS',serif; font-weight:800; font-size:11.5px;
+             text-anchor:middle; fill:#2f1d0c; paint-order:stroke; stroke:#fff8e7; stroke-width:2.6px; }
+    </style>
+  </defs>
+
+  <!-- surrounding (un-irrigated) soil + its furrows, so the green circle pops like an aerial field -->
+  <rect x="0" y="0" width="560" height="560" fill="url(#soilbg)"/>
+  <g stroke="#7c4f27" stroke-width="2" opacity="0.5">
+    <line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="90" x2="560" y2="90"/>
+    <line x1="0" y1="470" x2="560" y2="470"/><line x1="0" y1="520" x2="560" y2="520"/>
+    <line x1="40" y1="0" x2="40" y2="560"/><line x1="520" y1="0" x2="520" y2="560"/>
+  </g>
+
+  <!-- the 11 crop wedges -->
+  <g class="seg">
+    <path d="M280 280 L280 30 A250 250 0 0 1 415.4 69.8 Z" fill="#E3B23C"/>
+    <path d="M280 280 L415.4 69.8 A250 250 0 0 1 507.4 176.1 Z" fill="#6aa83a"/>
+    <path d="M280 280 L507.4 176.1 A250 250 0 0 1 527.4 315.6 Z" fill="#F2C94C"/>
+    <path d="M280 280 L527.4 315.6 A250 250 0 0 1 468.9 443.7 Z" fill="#C9A227"/>
+    <path d="M280 280 L468.9 443.7 A250 250 0 0 1 350.4 519.9 Z" fill="#B7CE7A"/>
+    <path d="M280 280 L350.4 519.9 A250 250 0 0 1 209.6 519.9 Z" fill="#D98E04"/>
+    <path d="M280 280 L209.6 519.9 A250 250 0 0 1 91.1 443.7 Z" fill="#A0522D"/>
+    <path d="M280 280 L91.1 443.7 A250 250 0 0 1 32.6 315.6 Z" fill="#D7C98A"/>
+    <path d="M280 280 L32.6 315.6 A250 250 0 0 1 52.6 176.1 Z" fill="#E1A500"/>
+    <path d="M280 280 L52.6 176.1 A250 250 0 0 1 144.6 69.8 Z" fill="#7FB0A3"/>
+    <path d="M280 280 L144.6 69.8 A250 250 0 0 1 280 30 Z" fill="#9CAA52"/>
+  </g>
+  <circle cx="280" cy="280" r="250" fill="none" stroke="#5c3a18" stroke-width="3"/>
+  <!-- crop-row texture rings -->
+  <g fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.25">
+    <circle cx="280" cy="280" r="210"/><circle cx="280" cy="280" r="165"/><circle cx="280" cy="280" r="120"/>
+  </g>
+
+  <!-- rotating center-pivot irrigation arm -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="36s" repeatCount="indefinite"/>
+    <line x1="280" y1="280" x2="280" y2="42" stroke="#5b6670" stroke-width="4"/>
+    <line x1="280" y1="280" x2="280" y2="42" stroke="#aeb9bf" stroke-width="1.5"/>
+    <g fill="#bfe3f2" opacity="0.85">
+      <circle cx="280" cy="110" r="3"/><circle cx="286" cy="150" r="3"/><circle cx="274" cy="190" r="3"/>
+      <circle cx="288" cy="230" r="3"/><circle cx="272" cy="90" r="3"/>
+    </g>
+    <circle cx="280" cy="42" r="6" fill="#8a97a0" stroke="#5b6670" stroke-width="1.5"/>
+  </g>
+
+  <!-- labels -->
+  <text class="lbl" x="326.5" y="125">TARGET</text>
+  <text class="lbl" x="404.7" y="176">PEERS</text>
+  <text class="lbl" x="443.3" y="260">MARKETS</text>
+  <text class="lbl" x="430.1" y="352">WEATHER</text>
+  <text class="lbl" x="369.4" y="422">PSD</text>
+  <text class="lbl" x="280" y="449">POLICY</text>
+  <text class="lbl" x="190.6" y="422">INDUSTRY</text>
+  <text class="lbl" x="129.9" y="352">PRODUCTS</text>
+  <text class="lbl" x="116.7" y="260">SENTIMENT</text>
+  <text class="lbl" x="155.3" y="176">FORECASTS</text>
+  <text class="lbl" x="233.5" y="125">CALENDAR</text>
+
+  <!-- centre hub: the crop we grow -->
+  <circle cx="280" cy="280" r="60" fill="url(#hub)" stroke="#f3e6c6" stroke-width="3"/>
+  <!-- little soy sprout -->
+  <g transform="translate(280 256)">
+    <path d="M0 18 L0 0" stroke="#bfe3a0" stroke-width="3"/>
+    <path d="M0 4 C-12 -2 -12 10 -1 7Z" fill="#8bc34a"/>
+    <path d="M0 0 C12 -6 12 6 1 3Z" fill="#9fce63"/>
+  </g>
+  <text x="280" y="296" text-anchor="middle" font-family="'Georgia',serif" font-weight="900" font-size="26" fill="#f6ead0">y</text>
+  <text x="280" y="314" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="11" fill="#f0dcb6">the crop we grow</text>
+  <text x="280" y="329" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="10.5" fill="#e7cf9d">price · Rs/qtl</text>
+</svg>
